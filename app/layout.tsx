@@ -1,19 +1,20 @@
-import { ClerkProvider } from '@clerk/nextjs'
-import NavBar from '@/components/navbar'
-import './globals.css'
+import { ClerkProvider } from "@clerk/nextjs";
+import NavBar from "@/components/navbar";
+import "./globals.css";
+
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <ClerkProvider>
       <html lang="en">
         <body>
-        <NavBar />
+          <NavBar />
           {children}
         </body>
       </html>
     </ClerkProvider>
-  )
+  );
 }

@@ -6,6 +6,7 @@ interface Props {
 }
 
 export default function Thread(props: Props) {
+  const datePosted = String(props.post.dated_posted);
   return (
     <div className="card card-side bg-base-100 shadow-xl">
       {/* <figure>
@@ -17,7 +18,7 @@ export default function Thread(props: Props) {
       <div className="card-body">
         <h2 className="card-title">{props.post.title}</h2>
         <p>{props.post.body}</p>
-        <p>{props.post.dated_posted.toLocaleDateString()}</p>
+        <p>{datePosted}</p>
         <div className="card-actions justify-end">
           <button className="btn">
             Button
