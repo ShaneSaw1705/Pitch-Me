@@ -1,24 +1,25 @@
+import { clerkClient, User } from "@clerk/nextjs/server";
 import { thread } from "@prisma/client";
-import React from "react";
 
 interface Props {
   post: thread;
 }
 
-export default function Thread(props: Props) {
+const getUser = async (userId: string): Promise<User> => {
+  return await clerkClient.users.getUser(userId);
+};
+
+export default async function Thread(props: Props) {
   const datePosted = String(props.post.dated_posted);
+  const authid = props.post.author_id;
   return (
     <div className="card card-side bg-base-100 shadow-xl">
-      {/* <figure>
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-          alt="Movie"
-        />
-      </figure> */}
       <div className="card-body">
         <h2 className="card-title">{props.post.title}</h2>
         <p>{props.post.body}</p>
-        <p>{datePosted}</p>
+        <div>
+          <p>{datePosted}</p>
+        </div>
         <div className="card-actions justify-end">
           <button className="btn">
             Button
