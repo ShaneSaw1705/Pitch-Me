@@ -1,9 +1,5 @@
-import { thread } from "@prisma/client";
 import Thread from "@/components/thread";
-import axios from "axios";
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
 
 export default async function Home() {
   const res = await fetch("http://localhost:3000/api/getthreads", {

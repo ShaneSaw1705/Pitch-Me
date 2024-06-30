@@ -12,10 +12,11 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
 model thread {
-  id Int @id @default(autoincrement())
-  title String
-  body String
-  author_id String
+  id           Int      @id @default(autoincrement())
+  title        String
+  body         String
+  author_id    String
   dated_posted DateTime @default(now())
 }
