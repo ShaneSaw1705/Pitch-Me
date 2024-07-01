@@ -1,5 +1,6 @@
 import React from "react";
 import { ThreadData } from "@/models/thread";
+import axios from "axios";
 
 export default function PostPage() {
   return (
@@ -16,6 +17,11 @@ export default function PostPage() {
           title: formTitle,
           body: formBody,
           author_id: 'test'
+        }
+        try {
+          await axios.post('/api/threads/create')
+        } catch (error) {
+          console.error('Failed to post thread:', error);
         }
         console.log(threadData)
       }} className="flex flex-col gap-2">
